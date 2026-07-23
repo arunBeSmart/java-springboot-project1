@@ -2,52 +2,57 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
 <head>
 	<meta charset="ISO-8859-1" >
-  <title>My Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudDevOpsHub - Learning Ecommerce</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" >
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-<!--  <h1>Navbar👋</h1>
--->  
 <!-- Start Navbar-->
-<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Ecommerce Store</a>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: linear-gradient(90deg, #0f0c29 0%, #302b63 50%, #24243e 100%); box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand fw-bold fs-5" href="/" style="letter-spacing: 1px;">
+      <i class="fas fa-brain text-info me-2"></i> CloudDevOpsHub<br>
+      <small style="font-size: 10px; opacity: 0.8;">Multi Cloud + DevOps + AI</small>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/"> <i class="fa-solid fa-house"></i>Home</a>
+          <a class="nav-link active text-white" aria-current="page" href="/"><i class="fas fa-home me-2"></i> Home</a>
         </li>
 		<li class="nav-item">
-		    <a class="nav-link active" aria-current="page" href="/products">Product</a>
+		    <a class="nav-link active text-white" aria-current="page" href="/products"><i class="fas fa-graduation-cap me-2"></i> Learning Paths</a>
 		 </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Category
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-layer-group me-2"></i> Tech Stack
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="#"><i class="fas fa-aws text-warning me-2"></i> AWS</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-cube text-danger me-2"></i> Azure</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-google text-info me-2"></i> GCP</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-cube text-primary me-2"></i> Kubernetes</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-docker text-info me-2"></i> Docker</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-brain text-success me-2"></i> AI/ML</a></li>
           </ul>
         </li>
       </ul>
 	  
 	  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 	          <li class="nav-item">
-	            <a class="nav-link active" aria-current="page" href="/login"> <i class="fa-solid fa-right-to-bracket"></i>LOGIN</a>
+	            <a class="nav-link active text-white" aria-current="page" href="/login"><i class="fas fa-sign-in-alt me-2"></i> Sign In</a>
 	          </li>
 	  		<li class="nav-item">
-	  		    <a class="nav-link active" aria-current="page" href="/register">REGISTER</a>
+	  		    <a class="btn btn-sm fw-bold rounded-pill ms-2" style="background: linear-gradient(90deg, #00c853 0%, #00b746 100%); color: white;" href="/register"><i class="fas fa-rocket me-1"></i> Start Free</a>
 	  		 </li>
 	          <li class="nav-item dropdown">
-	            <a class="nav-link dropdown-toggle" href="/admin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-	              ADMIN
+	            <a class="nav-link dropdown-toggle text-white ms-2" href="/admin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	              <i class="fas fa-cog me-2"></i> Admin
 	            </a>
 	          </li>
 	        </ul>
@@ -56,9 +61,43 @@
 </nav>
 <!-- End Navbar -->
 <div th:replace="${content}"></div>
-<div class="container-fluid p-1 bg-primary text-center text-white">
-	<p>ecommerce.com</p>
-</div>
+<footer class="container-fluid py-5 text-white" style="background: linear-gradient(90deg, #0f0c29 0%, #302b63 50%, #24243e 100%); margin-top: 60px; border-top: 2px solid rgba(0, 200, 83, 0.3);">
+	<div class="container">
+		<div class="row g-4 mb-4">
+			<div class="col-md-3">
+				<h6 class="fw-bold mb-3"><i class="fas fa-brain text-info me-2"></i> CloudDevOpsHub</h6>
+				<p class="small text-muted">Master Multi-Cloud, DevOps & AI technologies</p>
+			</div>
+			<div class="col-md-3">
+				<h6 class="fw-bold mb-3">Quick Links</h6>
+				<ul class="list-unstyled small">
+					<li><a href="/" class="text-muted text-decoration-none">Home</a></li>
+					<li><a href="/products" class="text-muted text-decoration-none">Courses</a></li>
+					<li><a href="/login" class="text-muted text-decoration-none">Sign In</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<h6 class="fw-bold mb-3">Technologies</h6>
+				<ul class="list-unstyled small">
+					<li><span class="badge bg-warning">AWS</span></li>
+					<li><span class="badge bg-info">Kubernetes</span></li>
+					<li><span class="badge bg-success">DevOps</span></li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<h6 class="fw-bold mb-3">Follow Us</h6>
+				<a href="#" class="text-muted me-2"><i class="fab fa-linkedin"></i></a>
+				<a href="#" class="text-muted me-2"><i class="fab fa-github"></i></a>
+				<a href="#" class="text-muted"><i class="fab fa-twitter"></i></a>
+			</div>
+		</div>
+		<hr style="border-color: rgba(255,255,255,0.1);">
+		<div class="text-center">
+			<p class="mb-0 small"><i class="fas fa-copyright"></i> 2024 CloudDevOpsHub. All rights reserved.</p>
+			<p class="small mt-2 text-muted">Learn Multi-Cloud • Master DevOps • Embrace AI</p>
+		</div>
+	</div>
+</footer>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Multi-Cloud + DevOps with AI | CloudDevOpsHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            padding: 120px 20px 80px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00c853 0%, #00e5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        .cta-button-primary {
+            background: linear-gradient(90deg, #00c853 0%, #00b746 100%);
+            color: white;
+        }
+        .cta-button-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 200, 83, 0.4);
+            color: white;
+        }
+        .cta-button-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #00c853;
+        }
+        .cta-button-secondary:hover {
+            background: rgba(0, 200, 83, 0.1);
+            transform: translateY(-3px);
+        }
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(0, 200, 83, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .feature-card:hover {
+            border-color: #00c853;
+            box-shadow: 0 20px 40px rgba(0, 200, 83, 0.15);
+            transform: translateY(-8px);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00c853 0%, #00e5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .course-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 1px solid rgba(0, 200, 83, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .course-card:hover {
+            border-color: #00c853;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 200, 83, 0.2);
+        }
+        .course-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        .course-body {
+            padding: 20px;
+            color: #e0e0e0;
+        }
+        .badge-tech {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            margin-right: 5px;
+            background: linear-gradient(90deg, #00c853 0%, #00e5ff 100%);
+            color: white;
+        }
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #00c853;
+        }
+        .stats-section {
+            background: linear-gradient(90deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            padding: 60px 20px;
+            color: white;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00c853 0%, #00e5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-label {
+            font-size: 1rem;
+            color: #b0b0b0;
+            margin-top: 10px;
+        }
+        .tech-stack {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+        }
+        .tech-stack h2 {
+            color: #0f0c29;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .tech-icon-box {
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        .tech-icon-box:hover {
+            border-color: #00c853;
+            box-shadow: 0 10px 30px rgba(0, 200, 83, 0.2);
+            transform: translateY(-8px);
+        }
+        .tech-icon-box i {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #00c853 0%, #00e5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        .tech-icon-box p {
+            color: #0f0c29;
+            font-weight: 600;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div th:replace="base.html::nav"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1 class="hero-title">Master Multi-Cloud & DevOps with AI</h1>
+        <p class="hero-subtitle">Learn industry-leading technologies from expert instructors</p>
+        <p style="font-size: 1.1rem; color: #b0b0b0; margin-bottom: 40px;">
+            <i class="fas fa-check-circle text-success me-2"></i> Hands-on Labs • 
+            <i class="fas fa-check-circle text-success me-2"></i> Certifications • 
+            <i class="fas fa-check-circle text-success me-2"></i> Lifetime Access
+        </p>
+        <a href="/register" class="btn cta-button cta-button-primary"><i class="fas fa-rocket me-2"></i> Start Learning Free</a>
+        <a href="/products" class="btn cta-button cta-button-secondary"><i class="fas fa-play-circle me-2"></i> Explore Courses</a>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-5" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold" style="color: #0f0c29;">Why Choose CloudDevOpsHub?</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                        <h5 class="text-white mb-3">AI-Powered Learning</h5>
+                        <p class="text-muted small">Personalized learning paths powered by artificial intelligence</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-globe"></i></div>
+                        <h5 class="text-white mb-3">Multi-Cloud Expertise</h5>
+                        <p class="text-muted small">Master AWS, Azure, GCP and Kubernetes ecosystems</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-code-branch"></i></div>
+                        <h5 class="text-white mb-3">Real-World Projects</h5>
+                        <p class="text-muted small">Build production-grade applications with live labs</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+                        <h5 class="text-white mb-3">Industry Certifications</h5>
+                        <p class="text-muted small">Earn recognized credentials from tech leaders</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Learning Paths -->
+    <section class="py-5" style="background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold" style="color: #0f0c29;">Popular Learning Paths</h2>
+            <div class="row g-4">
+                <!-- DevOps Engineer -->
+                <div class="col-md-4">
+                    <div class="course-card">
+                        <div class="course-image"><i class="fas fa-cogs"></i></div>
+                        <div class="course-body">
+                            <div class="badge-tech">DevOps</div>
+                            <div class="badge-tech">Intermediate</div>
+                            <h5 class="mt-3">Complete DevOps Engineer</h5>
+                            <p class="small text-muted">CI/CD, Docker, Kubernetes, Jenkins & more</p>
+                            <div class="mt-3">
+                                <small class="text-warning"><i class="fas fa-star"></i> 4.9 (2.3K reviews)</small>
+                            </div>
+                            <div class="mt-3 d-flex justify-content-between align-items-center">
+                                <span class="price">$49.99</span>
+                                <button class="btn btn-sm btn-success rounded-pill"><i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kubernetes Master -->
+                <div class="col-md-4">
+                    <div class="course-card">
+                        <div class="course-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><i class="fas fa-cube"></i></div>
+                        <div class="course-body">
+                            <div class="badge-tech">Kubernetes</div>
+                            <div class="badge-tech">Advanced</div>
+                            <h5 class="mt-3">Kubernetes Mastery</h5>
+                            <p class="small text-muted">Orchestration, Helm, GitOps & Production Setups</p>
+                            <div class="mt-3">
+                                <small class="text-warning"><i class="fas fa-star"></i> 4.8 (1.8K reviews)</small>
+                            </div>
+                            <div class="mt-3 d-flex justify-content-between align-items-center">
+                                <span class="price">$79.99</span>
+                                <button class="btn btn-sm btn-success rounded-pill"><i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AWS Certification -->
+                <div class="col-md-4">
+                    <div class="course-card">
+                        <div class="course-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"><i class="fas fa-aws"></i></div>
+                        <div class="course-body">
+                            <div class="badge-tech">AWS</div>
+                            <div class="badge-tech">Beginner</div>
+                            <h5 class="mt-3">AWS Solutions Architect</h5>
+                            <p class="small text-muted">EC2, S3, Lambda, RDS & Cloud Architecture</p>
+                            <div class="mt-3">
+                                <small class="text-warning"><i class="fas fa-star"></i> 4.9 (3.1K reviews)</small>
+                            </div>
+                            <div class="mt-3 d-flex justify-content-between align-items-center">
+                                <span class="price">$69.99</span>
+                                <button class="btn btn-sm btn-success rounded-pill"><i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Docker & Containerization -->
+                <div class="col-md-4">
+                    <div class="course-card">
+                        <div class="course-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"><i class="fas fa-docker"></i></div>
+                        <div class="course-body">
+                            <div class="badge-tech">Docker</div>
+                            <div class="badge-tech">Intermediate</div>
+                            <h5 class="mt-3">Docker & Containerization</h5>
+                            <p class="small text-muted">Build, Ship & Run containerized applications</p>
+                            <div class="mt-3">
+                                <small class="text-warning"><i class="fas fa-star"></i> 4.7 (1.5K reviews)</small>
+                            </div>
+                            <div class="mt-3 d-flex justify-content-between align-items-center">
+                                <span class="price">$59.99</span>
+                                <button class="btn btn-sm btn-success rounded-pill"><i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ML & AI DevOps -->
+                <div class="col-md-4">
+                    <div class="course-card">
+                        <div class="course-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"><i class="fas fa-brain"></i></div>
+                        <div class="course-body">
+                            <div class="badge-tech">AI/ML</div>
+                            <div class="badge-tech">Advanced</div>
+                            <h5 class="mt-3">MLOps & AI Pipeline</h5>
+                            <p class="small text-muted">Deploy ML models in production at scale</p>
+                            <div class="mt-3">
+                                <small class="text-warning"><i class="fas fa-star"></i> 4.9 (890 reviews)</small>
+                            </div>
+                            <div class="mt-3 d-flex justify-content-between align-items-center">
+                                <span class="price">$89.99</span>
+                                <button class="btn btn-sm btn-success rounded-pill"><i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Security -->
+                <div class="col-md-4">
+                    <div class="course-card">
+                        <div class="course-image" style="background: linear-gradient(135deg, #fa709a 0%, #feca57 100%);"><i class="fas fa-shield-alt"></i></div>
+                        <div class="course-body">
+                            <div class="badge-tech">Security</div>
+                            <div class="badge-tech">Intermediate</div>
+                            <h5 class="mt-3">Cloud Security Essentials</h5>
+                            <p class="small text-muted">Secure multi-cloud infrastructure & compliance</p>
+                            <div class="mt-3">
+                                <small class="text-warning"><i class="fas fa-star"></i> 4.8 (1.2K reviews)</small>
+                            </div>
+                            <div class="mt-3 d-flex justify-content-between align-items-center">
+                                <span class="price">$64.99</span>
+                                <button class="btn btn-sm btn-success rounded-pill"><i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="tech-stack">
+        <h2>Technologies We Cover</h2>
+        <div class="row g-4">
+            <div class="col-md-2 col-sm-4 col-6">
+                <div class="tech-icon-box">
+                    <i class="fab fa-aws"></i>
+                    <p>AWS</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+                <div class="tech-icon-box">
+                    <i class="fas fa-microsoft"></i>
+                    <p>Azure</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+                <div class="tech-icon-box">
+                    <i class="fab fa-google"></i>
+                    <p>GCP</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+                <div class="tech-icon-box">
+                    <i class="fas fa-cube"></i>
+                    <p>Kubernetes</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+                <div class="tech-icon-box">
+                    <i class="fab fa-docker"></i>
+                    <p>Docker</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+                <div class="tech-icon-box">
+                    <i class="fas fa-brain"></i>
+                    <p>AI/ML</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+                <div class="tech-icon-box">
+                    <i class="fas fa-code-branch"></i>
+                    <p>GitOps</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+                <div class="tech-icon-box">
+                    <i class="fas fa-jenkins"></i>
+                    <p>Jenkins</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+                <div class="tech-icon-box">
+                    <i class="fas fa-linux"></i>
+                    <p>Linux</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+                <div class="tech-icon-box">
+                    <i class="fas fa-code"></i>
+                    <p>Terraform</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+                <div class="tech-icon-box">
+                    <i class="fas fa-cube"></i>
+                    <p>Ansible</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+                <div class="tech-icon-box">
+                    <i class="fas fa-database"></i>
+                    <p>Databases</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Active Students</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Expert Courses</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background: linear-gradient(90deg, #0f0c29 0%, #302b63 50%, #24243e 100%); padding: 80px 20px; color: white; text-align: center;">
+        <div class="container">
+            <h2 class="mb-4 fw-bold" style="font-size: 2.5rem;">Ready to Transform Your Career?</h2>
+            <p class="mb-4" style="font-size: 1.2rem; color: #b0b0b0;">Join thousands of professionals mastering cloud technologies</p>
+            <a href="/register" class="btn cta-button cta-button-primary btn-lg"><i class="fas fa-rocket me-2"></i> Start Your Free Journey Today</a>
+        </div>
+    </section>
+
+    <div th:replace="base.html::footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+				<div class="carousel-inner">
+					<div class="carousel-item active hero-slide" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+						<div class="container h-100 d-flex align-items-center justify-content-center text-center text-white">
+							<div class="py-5">
+								<h1 class="display-4 fw-bold mb-3"><i class="fas fa-cloud"></i> CloudDevOpsHub</h1>
+								<p class="lead mb-4">Master DevOps, Kubernetes, Docker & Cloud Technologies</p>
+								<a href="/products" class="btn btn-light btn-lg fw-bold">Explore Courses <i class="fas fa-arrow-right ms-2"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item hero-slide" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+						<div class="container h-100 d-flex align-items-center justify-content-center text-center text-white">
+							<div class="py-5">
+								<h1 class="display-4 fw-bold mb-3"><i class="fas fa-graduation-cap"></i> Learn From Experts</h1>
+								<p class="lead mb-4">Industry-leading instructors sharing real-world knowledge</p>
+								<a href="/register" class="btn btn-light btn-lg fw-bold">Get Started <i class="fas fa-play-circle ms-2"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item hero-slide" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+						<div class="container h-100 d-flex align-items-center justify-content-center text-center text-white">
+							<div class="py-5">
+								<h1 class="display-4 fw-bold mb-3"><i class="fas fa-certificate"></i> Get Certified</h1>
+								<p class="lead mb-4">Earn industry-recognized certifications</p>
+								<a href="/products" class="btn btn-light btn-lg fw-bold">View Certifications <i class="fas fa-medal ms-2"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target=".carousel" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target=".carousel" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				</button>
+			</div>
+		</div>
+		
+		<!-- Featured Categories Section -->
+		<div class="container mb-5">
+			<div class="row mb-5">
+				<div class="col-12 text-center">
+					<h2 class="display-6 fw-bold mb-2">Explore Categories</h2>
+					<p class="text-muted fs-5">Choose your learning path</p>
+				</div>
+			</div>
+			
+			<div class="row g-4">
+				<!-- DevOps Category -->
+				<div class="col-md-6 col-lg-3">
+					<div class="category-card h-100 rounded-4 overflow-hidden shadow-sm hover-lift">
+						<div class="category-bg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 150px; display: flex; align-items: center; justify-content: center;">
+							<i class="fas fa-server fa-4x text-white"></i>
+						</div>
+						<div class="p-4 text-center">
+							<h5 class="fw-bold mb-2">DevOps Engineering</h5>
+							<p class="text-muted small mb-3">CI/CD, Jenkins, GitLab</p>
+							<a href="#" class="btn btn-sm btn-outline-primary">View Courses <i class="fas fa-arrow-right ms-2"></i></a>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Kubernetes Category -->
+				<div class="col-md-6 col-lg-3">
+					<div class="category-card h-100 rounded-4 overflow-hidden shadow-sm hover-lift">
+						<div class="category-bg" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); height: 150px; display: flex; align-items: center; justify-content: center;">
+							<i class="fas fa-cube fa-4x text-white"></i>
+						</div>
+						<div class="p-4 text-center">
+							<h5 class="fw-bold mb-2">Kubernetes</h5>
+							<p class="text-muted small mb-3">Container Orchestration</p>
+							<a href="#" class="btn btn-sm btn-outline-primary">View Courses <i class="fas fa-arrow-right ms-2"></i></a>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Docker Category -->
+				<div class="col-md-6 col-lg-3">
+					<div class="category-card h-100 rounded-4 overflow-hidden shadow-sm hover-lift">
+						<div class="category-bg" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); height: 150px; display: flex; align-items: center; justify-content: center;">
+							<i class="fas fa-docker fa-4x text-white"></i>
+						</div>
+						<div class="p-4 text-center">
+							<h5 class="fw-bold mb-2">Docker Mastery</h5>
+							<p class="text-muted small mb-3">Containerization Basics</p>
+							<a href="#" class="btn btn-sm btn-outline-primary">View Courses <i class="fas fa-arrow-right ms-2"></i></a>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Cloud Computing Category -->
+				<div class="col-md-6 col-lg-3">
+					<div class="category-card h-100 rounded-4 overflow-hidden shadow-sm hover-lift">
+						<div class="category-bg" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); height: 150px; display: flex; align-items: center; justify-content: center;">
+							<i class="fas fa-cloud fa-4x text-white"></i>
+						</div>
+						<div class="p-4 text-center">
+							<h5 class="fw-bold mb-2">Cloud Computing</h5>
+							<p class="text-muted small mb-3">AWS, Azure, GCP</p>
+							<a href="#" class="btn btn-sm btn-outline-primary">View Courses <i class="fas fa-arrow-right ms-2"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Featured Courses Section -->
+		<div class="container mb-5">
+			<div class="row mb-5">
+				<div class="col-12 text-center">
+					<h2 class="display-6 fw-bold mb-2">Featured Courses</h2>
+					<p class="text-muted fs-5">Start learning today</p>
+				</div>
+			</div>
+			
+			<div class="row g-4">
+				<!-- Course Card 1 -->
+				<div class="col-md-6 col-lg-4">
+					<div class="course-card rounded-4 overflow-hidden shadow-sm hover-lift h-100">
+						<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+							<i class="fas fa-code fa-5x text-white"></i>
+						</div>
+						<div class="p-4">
+							<h5 class="fw-bold mb-2">DevOps Fundamentals</h5>
+							<p class="text-muted small mb-3">Learn the basics of DevOps practices and tools</p>
+							<div class="mb-3">
+								<span class="badge bg-primary me-2">Beginner</span>
+								<span class="badge bg-light text-dark"><i class="fas fa-star"></i> 4.8</span>
+							</div>
+							<div class="d-flex justify-content-between align-items-center">
+								<span class="h6 mb-0 text-primary fw-bold">$49.99</span>
+								<a href="#" class="btn btn-sm btn-primary">Enroll <i class="fas fa-arrow-right ms-2"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Course Card 2 -->
+				<div class="col-md-6 col-lg-4">
+					<div class="course-card rounded-4 overflow-hidden shadow-sm hover-lift h-100">
+						<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+							<i class="fas fa-cube fa-5x text-white"></i>
+						</div>
+						<div class="p-4">
+							<h5 class="fw-bold mb-2">Kubernetes Advanced</h5>
+							<p class="text-muted small mb-3">Master Kubernetes in production environments</p>
+							<div class="mb-3">
+								<span class="badge bg-danger me-2">Advanced</span>
+								<span class="badge bg-light text-dark"><i class="fas fa-star"></i> 4.9</span>
+							</div>
+							<div class="d-flex justify-content-between align-items-center">
+								<span class="h6 mb-0 text-primary fw-bold">$79.99</span>
+								<a href="#" class="btn btn-sm btn-primary">Enroll <i class="fas fa-arrow-right ms-2"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Course Card 3 -->
+				<div class="col-md-6 col-lg-4">
+					<div class="course-card rounded-4 overflow-hidden shadow-sm hover-lift h-100">
+						<div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+							<i class="fas fa-docker fa-5x text-white"></i>
+						</div>
+						<div class="p-4">
+							<h5 class="fw-bold mb-2">Docker Complete Guide</h5>
+							<p class="text-muted small mb-3">Build and deploy applications with Docker</p>
+							<div class="mb-3">
+								<span class="badge bg-info me-2">Intermediate</span>
+								<span class="badge bg-light text-dark"><i class="fas fa-star"></i> 4.7</span>
+							</div>
+							<div class="d-flex justify-content-between align-items-center">
+								<span class="h6 mb-0 text-primary fw-bold">$59.99</span>
+								<a href="#" class="btn btn-sm btn-primary">Enroll <i class="fas fa-arrow-right ms-2"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Stats Section -->
+		<div class="container-fluid py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-bottom: 40px;">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-md-3 mb-4">
+						<h3 class="display-5 fw-bold">10K+</h3>
+						<p class="lead">Active Students</p>
+					</div>
+					<div class="col-md-3 mb-4">
+						<h3 class="display-5 fw-bold">50+</h3>
+						<p class="lead">Expert Instructors</p>
+					</div>
+					<div class="col-md-3 mb-4">
+						<h3 class="display-5 fw-bold">100+</h3>
+						<p class="lead">Courses Available</p>
+					</div>
+					<div class="col-md-3 mb-4">
+						<h3 class="display-5 fw-bold">95%</h3>
+						<p class="lead">Success Rate</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
+							<p>Beauty</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+						<div class="card-body text-center">
+							<img src="img/category_img/pant.png" width="65%" height="140px" />
+							<p>Clothes</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+						<div class="card-body text-center">
+							<img src="img/category_img/laptop.jpg" width="65%" height="140px" />
+							<p>Laptop</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+						<div class="card-body text-center">
+							<img src="img/category_img/mobile.png" width="65%" height="140px" />
+							<p>Mobile</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+						<div class="card-body text-center">
+							<img src="img/category_img/groccery.jpg" width="65%" height="140px" />
+							<p>Groccery</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Category Module -->
+		
+		<!-- Start Latest Product Module -->
+		
+		<div class="container-fluid bg-light p-3">
+			<div class="row">
+				<p class="text-center fs-4">Latest Proudct</p>
+				<div class="col-md-3">
+					<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+						<div class="card-body text-center">
+							<img alt="" src="img/product_img/laptop.jpg" class="" width="65%" height="140px" />
+							<p class="text-center">HP Laptop</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+						<div class="card-body text-center">
+							<img alt="" src="img/product_img/laptop.jpg" class="" width="65%" height="140px" />
+							<p class="text-center">HP Laptop</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+						<div class="card-body text-center">
+							<img alt="" src="img/product_img/laptop.jpg" class="" width="65%" height="140px" />
+							<p class="text-center">HP Laptop</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+						<div class="card-body text-center">
+							<img alt="" src="img/product_img/laptop.jpg" class="" width="65%" height="140px" />
+							<p class="text-center">HP Laptop</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Latest Product Module -->
+	</section>
+</body>
+</html>

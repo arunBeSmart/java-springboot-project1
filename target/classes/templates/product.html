@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+	<meta charset="ISO-8859-1" >
+  <title>Courses - CloudDevOpsHub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" >
+</head>
+<body>
+	<section>
+		<!-- Search Section -->
+		<div class="container-fluid p-5 mt-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					<form>
+						<div class="input-group input-group-lg">
+							<input type="text" class="form-control rounded-start-4" name="ch" placeholder="Search courses..." />
+							<button class="btn btn-light text-dark fw-bold rounded-end-4 px-4"><i class="fas fa-search me-2"></i>Search</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid mt-5 pb-5">
+			<div class="row g-4">
+				<!-- Sidebar Categories -->
+				<div class="col-lg-2">
+					<div class="card rounded-4 shadow-sm border-0 sticky-top" style="top: 100px;">
+						<div class="card-header p-4" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+							<h5 class="mb-0"><i class="fas fa-filter me-2"></i>Categories</h5>
+						</div>
+						<div class="card-body p-0">
+							<div class="list-group list-group-flush">
+								<a href="#" class="list-group-item list-group-item-action active">
+									<i class="fas fa-th me-2"></i> All Courses
+								</a>
+								<a href="#" class="list-group-item list-group-item-action">
+									<i class="fas fa-server me-2"></i> DevOps
+								</a>
+								<a href="#" class="list-group-item list-group-item-action">
+									<i class="fas fa-cube me-2"></i> Kubernetes
+								</a>
+								<a href="#" class="list-group-item list-group-item-action">
+									<i class="fas fa-docker me-2"></i> Docker
+								</a>
+								<a href="#" class="list-group-item list-group-item-action">
+									<i class="fas fa-cloud me-2"></i> Cloud Computing
+								</a>
+								<a href="#" class="list-group-item list-group-item-action">
+									<i class="fas fa-git-alt me-2"></i> Git & Version Control
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Courses Grid -->
+				<div class="col-lg-10">
+					<div class="row g-4">
+						<p class="fs-4 fw-bold mb-3"><i class="fas fa-book me-2"></i> Featured Courses</p>
+
+						<!-- Course Card 1 -->
+						<div class="col-md-6 col-lg-4">
+							<div class="course-card rounded-4 overflow-hidden shadow-sm hover-lift h-100">
+								<div class="position-relative" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 180px; display: flex; align-items: center; justify-content: center;">
+									<i class="fas fa-code fa-4x text-white"></i>
+									<span class="badge bg-danger position-absolute top-0 end-0 m-3">Best Seller</span>
+								</div>
+								<div class="p-4">
+									<h6 class="fw-bold mb-2">DevOps Fundamentals</h6>
+									<p class="text-muted small mb-3">Learn CI/CD, Jenkins, GitLab, and DevOps best practices</p>
+									<div class="mb-3 d-flex justify-content-between align-items-center">
+										<div>
+											<span class="badge bg-primary me-2">Beginner</span>
+											<span class="small text-warning"><i class="fas fa-star"></i> 4.8 (320)</span>
+										</div>
+									</div>
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<span class="h6 text-primary fw-bold">$49.99</span>
+											<span class="small text-muted text-decoration-line-through">$99.99</span>
+										</div>
+										<a href="/product" class="btn btn-sm btn-primary"><i class="fas fa-arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Course Card 2 -->
+						<div class="col-md-6 col-lg-4">
+							<div class="course-card rounded-4 overflow-hidden shadow-sm hover-lift h-100">
+								<div class="position-relative" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); height: 180px; display: flex; align-items: center; justify-content: center;">
+									<i class="fas fa-cube fa-4x text-white"></i>
+									<span class="badge bg-warning position-absolute top-0 end-0 m-3">Advanced</span>
+								</div>
+								<div class="p-4">
+									<h6 class="fw-bold mb-2">Kubernetes Mastery</h6>
+									<p class="text-muted small mb-3">Production-grade Kubernetes clusters and advanced deployments</p>
+									<div class="mb-3 d-flex justify-content-between align-items-center">
+										<div>
+											<span class="badge bg-danger me-2">Advanced</span>
+											<span class="small text-warning"><i class="fas fa-star"></i> 4.9 (215)</span>
+										</div>
+									</div>
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<span class="h6 text-primary fw-bold">$79.99</span>
+											<span class="small text-muted text-decoration-line-through">$129.99</span>
+										</div>
+										<a href="/product" class="btn btn-sm btn-primary"><i class="fas fa-arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Course Card 3 -->
+						<div class="col-md-6 col-lg-4">
+							<div class="course-card rounded-4 overflow-hidden shadow-sm hover-lift h-100">
+								<div class="position-relative" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); height: 180px; display: flex; align-items: center; justify-content: center;">
+									<i class="fas fa-docker fa-4x text-white"></i>
+								</div>
+								<div class="p-4">
+									<h6 class="fw-bold mb-2">Docker Complete Guide</h6>
+									<p class="text-muted small mb-3">Master containerization with Docker and Docker Compose</p>
+									<div class="mb-3 d-flex justify-content-between align-items-center">
+										<div>
+											<span class="badge bg-info me-2">Intermediate</span>
+											<span class="small text-warning"><i class="fas fa-star"></i> 4.7 (185)</span>
+										</div>
+									</div>
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<span class="h6 text-primary fw-bold">$59.99</span>
+											<span class="small text-muted text-decoration-line-through">$109.99</span>
+										</div>
+										<a href="/product" class="btn btn-sm btn-primary"><i class="fas fa-arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Course Card 4 -->
+						<div class="col-md-6 col-lg-4">
+							<div class="course-card rounded-4 overflow-hidden shadow-sm hover-lift h-100">
+								<div class="position-relative" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); height: 180px; display: flex; align-items: center; justify-content: center;">
+									<i class="fas fa-cloud fa-4x text-white"></i>
+								</div>
+								<div class="p-4">
+									<h6 class="fw-bold mb-2">AWS for DevOps</h6>
+									<p class="text-muted small mb-3">Learn AWS services, EC2, S3, and cloud deployment</p>
+									<div class="mb-3 d-flex justify-content-between align-items-center">
+										<div>
+											<span class="badge bg-primary me-2">Beginner</span>
+											<span class="small text-warning"><i class="fas fa-star"></i> 4.6 (198)</span>
+										</div>
+									</div>
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<span class="h6 text-primary fw-bold">$69.99</span>
+											<span class="small text-muted text-decoration-line-through">$119.99</span>
+										</div>
+										<a href="/product" class="btn btn-sm btn-primary"><i class="fas fa-arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Course Card 5 -->
+						<div class="col-md-6 col-lg-4">
+							<div class="course-card rounded-4 overflow-hidden shadow-sm hover-lift h-100">
+								<div class="position-relative" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); height: 180px; display: flex; align-items: center; justify-content: center;">
+									<i class="fas fa-git-alt fa-4x text-white"></i>
+								</div>
+								<div class="p-4">
+									<h6 class="fw-bold mb-2">Git & GitHub Mastery</h6>
+									<p class="text-muted small mb-3">Version control, branching strategies, and collaboration</p>
+									<div class="mb-3 d-flex justify-content-between align-items-center">
+										<div>
+											<span class="badge bg-success me-2">Beginner</span>
+											<span class="small text-warning"><i class="fas fa-star"></i> 4.5 (142)</span>
+										</div>
+									</div>
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<span class="h6 text-primary fw-bold">$39.99</span>
+											<span class="small text-muted text-decoration-line-through">$79.99</span>
+										</div>
+										<a href="/product" class="btn btn-sm btn-primary"><i class="fas fa-arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Course Card 6 -->
+						<div class="col-md-6 col-lg-4">
+							<div class="course-card rounded-4 overflow-hidden shadow-sm hover-lift h-100">
+								<div class="position-relative" style="background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%); height: 180px; display: flex; align-items: center; justify-content: center;">
+									<i class="fas fa-server fa-4x text-white"></i>
+								</div>
+								<div class="p-4">
+									<h6 class="fw-bold mb-2">Linux Server Administration</h6>
+									<p class="text-muted small mb-3">System administration, security, and server management</p>
+									<div class="mb-3 d-flex justify-content-between align-items-center">
+										<div>
+											<span class="badge bg-secondary me-2">Intermediate</span>
+											<span class="small text-warning"><i class="fas fa-star"></i> 4.7 (167)</span>
+										</div>
+									</div>
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<span class="h6 text-primary fw-bold">$54.99</span>
+											<span class="small text-muted text-decoration-line-through">$99.99</span>
+										</div>
+										<a href="/product" class="btn btn-sm btn-primary"><i class="fas fa-arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

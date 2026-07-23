@@ -2,71 +2,201 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
 <head>
 	<meta charset="ISO-8859-1" >
-  <title>My Page</title>
+  <title>Admin Dashboard - CloudDevOpsHub</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" >
-
 </head>
 <body>
 	<section>
-		<div class="container p-5">
-			<p class="text-center fs-3 mt-4">Admin Dashboard</p>
-			<div class="row p-5">
-				<div class="col-md-4 mt-2">
+		<div class="container py-5">
+			<!-- Page Header -->
+			<div class="mb-5">
+				<h1 class="display-4 fw-bold mb-2"><i class="fas fa-cogs me-3 text-primary"></i>Admin Dashboard</h1>
+				<p class="lead text-muted">Manage courses, categories, and platform content</p>
+			</div>
+
+			<!-- Stats Cards -->
+			<div class="row g-4 mb-5">
+				<div class="col-lg-3 col-md-6">
+					<div class="card rounded-4 border-0 shadow-sm hover-lift" style="border-left: 5px solid #667eea;">
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-center">
+								<div>
+									<p class="text-muted small mb-1">Total Courses</p>
+									<h2 class="mb-0 fw-bold">125</h2>
+								</div>
+								<i class="fas fa-book fa-3x opacity-25 text-primary"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="card rounded-4 border-0 shadow-sm hover-lift" style="border-left: 5px solid #f5576c;">
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-center">
+								<div>
+									<p class="text-muted small mb-1">Active Students</p>
+									<h2 class="mb-0 fw-bold">2,840</h2>
+								</div>
+								<i class="fas fa-users fa-3x opacity-25 text-danger"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="card rounded-4 border-0 shadow-sm hover-lift" style="border-left: 5px solid #00f2fe;">
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-center">
+								<div>
+									<p class="text-muted small mb-1">Total Enrollments</p>
+									<h2 class="mb-0 fw-bold">5,320</h2>
+								</div>
+								<i class="fas fa-user-check fa-3x opacity-25 text-info"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="card rounded-4 border-0 shadow-sm hover-lift" style="border-left: 5px solid #fee140;">
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-center">
+								<div>
+									<p class="text-muted small mb-1">Revenue</p>
+									<h2 class="mb-0 fw-bold">$45,230</h2>
+								</div>
+								<i class="fas fa-dollar-sign fa-3x opacity-25 text-warning"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Admin Actions -->
+			<div class="row g-4">
+				<p class="fs-5 fw-bold mb-3 col-12"><i class="fas fa-tasks me-2 text-primary"></i>Management Tools</p>
+
+				<!-- Add Course -->
+				<div class="col-lg-3 col-md-6">
 					<a href="/admin/loadAddProduct" class="text-decoration-none">
-					<div class="card card-sh">
-						<div class="card-body text-center text-primary">
-							<i class="fa-solid fa-square-plus fa-3x"></i>
-							<p class="fs-5">Add Product</p>
+						<div class="card rounded-4 border-0 shadow-sm hover-lift h-100 overflow-hidden">
+							<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 120px; display: flex; align-items: center; justify-content: center;">
+								<i class="fas fa-plus-circle fa-3x text-white"></i>
+							</div>
+							<div class="card-body p-4 text-center">
+								<h6 class="fw-bold mb-2">Add Course</h6>
+								<p class="text-muted small mb-3">Create and publish new courses</p>
+								<span class="badge bg-primary">Quick Action</span>
+							</div>
 						</div>
-					</div>
 					</a>
 				</div>
-				<div class="col-md-4 mt-2">
+
+				<!-- Manage Categories -->
+				<div class="col-lg-3 col-md-6">
 					<a href="/admin/category" class="text-decoration-none">
-						<div class="card card-sh">
-							<div class="card-body text-center text-warning">
-								<i class="fa-solid fa-list fa-3x"></i>
-								<p class="fs-5">Add Category</p>
+						<div class="card rounded-4 border-0 shadow-sm hover-lift h-100 overflow-hidden">
+							<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); height: 120px; display: flex; align-items: center; justify-content: center;">
+								<i class="fas fa-th fa-3x text-white"></i>
+							</div>
+							<div class="card-body p-4 text-center">
+								<h6 class="fw-bold mb-2">Manage Categories</h6>
+								<p class="text-muted small mb-3">Add and organize course categories</p>
+								<span class="badge bg-danger">Quick Action</span>
 							</div>
 						</div>
 					</a>
 				</div>
-				<div class="col-md-4 mt-2">
+
+				<!-- View Courses -->
+				<div class="col-lg-3 col-md-6">
 					<a href="#" class="text-decoration-none">
-					<div class="card card-sh">
-						<div class="card-body text-center text-success">
-							<i class="fa-solid fa-table-list fa-3x"></i>
-							<p class="fs-5">View Product</p>
-						</div>
-					</div>
-					</a>
-				</div>
-				<div class="col-md-4 mt-4">
-					<a href="#" class="text-decoration-none">
-					<div class="card card-sh">
-						<div class="card-body text-center text-warning">
-							<i class="fa-solid fa-box-open fa-3x"></i>
-							<p class="fs-5">Orders</p>
-						</div>
-					</div>
-					</a>
-				</div>
-				<div class="col-md-4 mt-4">
-					<a href="#" class="text-decoration-none">
-						<div class="card card-sh">
-							<div class="card-body text-center text-primary">
-								<i class="fa-solid fa-circle-user fa-3x"></i>
-								<p class="fs-5">Users</p>
+						<div class="card rounded-4 border-0 shadow-sm hover-lift h-100 overflow-hidden">
+							<div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); height: 120px; display: flex; align-items: center; justify-content: center;">
+								<i class="fas fa-list fa-3x text-white"></i>
+							</div>
+							<div class="card-body p-4 text-center">
+								<h6 class="fw-bold mb-2">View Courses</h6>
+								<p class="text-muted small mb-3">Edit or delete existing courses</p>
+								<span class="badge bg-info">Quick Action</span>
 							</div>
 						</div>
 					</a>
 				</div>
-				<div class="col-md-4 mt-4">
+
+				<!-- View Orders -->
+				<div class="col-lg-3 col-md-6">
 					<a href="#" class="text-decoration-none">
-						<div class="card card-sh">
-							<div class="card-body text-center text-primary">
-								<i class="fa-solid fa-user-plus fa-3x"></i>
-								<p class="fs-5">Add Admin</p>
+						<div class="card rounded-4 border-0 shadow-sm hover-lift h-100 overflow-hidden">
+							<div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); height: 120px; display: flex; align-items: center; justify-content: center;">
+								<i class="fas fa-shopping-bag fa-3x text-white"></i>
+							</div>
+							<div class="card-body p-4 text-center">
+								<h6 class="fw-bold mb-2">Orders</h6>
+								<p class="text-muted small mb-3">Manage enrollments and payments</p>
+								<span class="badge bg-warning">Quick Action</span>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Manage Users -->
+				<div class="col-lg-3 col-md-6">
+					<a href="#" class="text-decoration-none">
+						<div class="card rounded-4 border-0 shadow-sm hover-lift h-100 overflow-hidden">
+							<div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); height: 120px; display: flex; align-items: center; justify-content: center;">
+								<i class="fas fa-users fa-3x text-white"></i>
+							</div>
+							<div class="card-body p-4 text-center">
+								<h6 class="fw-bold mb-2">Manage Users</h6>
+								<p class="text-muted small mb-3">View and manage student accounts</p>
+								<span class="badge bg-success">Quick Action</span>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Add Admin -->
+				<div class="col-lg-3 col-md-6">
+					<a href="#" class="text-decoration-none">
+						<div class="card rounded-4 border-0 shadow-sm hover-lift h-100 overflow-hidden">
+							<div style="background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%); height: 120px; display: flex; align-items: center; justify-content: center;">
+								<i class="fas fa-user-tie fa-3x text-white"></i>
+							</div>
+							<div class="card-body p-4 text-center">
+								<h6 class="fw-bold mb-2">Add Admin</h6>
+								<p class="text-muted small mb-3">Assign admin privileges to users</p>
+								<span class="badge bg-danger">Advanced</span>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Reports -->
+				<div class="col-lg-3 col-md-6">
+					<a href="#" class="text-decoration-none">
+						<div class="card rounded-4 border-0 shadow-sm hover-lift h-100 overflow-hidden">
+							<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 120px; display: flex; align-items: center; justify-content: center;">
+								<i class="fas fa-chart-bar fa-3x text-white"></i>
+							</div>
+							<div class="card-body p-4 text-center">
+								<h6 class="fw-bold mb-2">Analytics</h6>
+								<p class="text-muted small mb-3">View platform analytics and reports</p>
+								<span class="badge bg-primary">Reports</span>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Settings -->
+				<div class="col-lg-3 col-md-6">
+					<a href="#" class="text-decoration-none">
+						<div class="card rounded-4 border-0 shadow-sm hover-lift h-100 overflow-hidden">
+							<div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); height: 120px; display: flex; align-items: center; justify-content: center;">
+								<i class="fas fa-cog fa-3x text-white"></i>
+							</div>
+							<div class="card-body p-4 text-center">
+								<h6 class="fw-bold mb-2">Settings</h6>
+								<p class="text-muted small mb-3">Configure platform settings</p>
+								<span class="badge bg-info">Configuration</span>
 							</div>
 						</div>
 					</a>
